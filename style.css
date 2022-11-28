@@ -1,0 +1,64 @@
+/* .container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "puzzle pieces";
+
+  gap: 10px;
+} */
+
+/* style puzzle board */
+#puzzle-board {
+  /* grid-area: puzzle; */
+
+  /* set puzzle size and border */
+  width: 600px;
+  height: 780px;
+  border: 2px solid black;
+
+  /* center the puzzle board */
+  margin: auto;
+
+  /* make sure pieces do not overlap/stack in a column */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* style image pieces */
+#puzzle-board img {
+  width: 148px;
+  height: 154px;
+  border: 0.5px solid lightslategray;
+}
+
+/* style holder for pieces */
+#pieces {
+  /* grid-area: pieces; */
+
+  /* width: 337.5px;
+  height: 819px; */
+  width: 819px;
+  height: 337.5px;
+  border: 2px solid black;
+
+  /* center pieces holder */
+  margin: auto;
+
+  /* make sure pieces do not overlap/stack in a column */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* style image pieces */
+#pieces img {
+  /* width: 110.5px;
+  height: 115px; */
+  width: 115px;
+  height: 110.5px;
+  border: 0.5px solid lightslategray;
+}
+
+#pieces img:hover {
+  transform: scale(1.3);
+  overflow: hidden;
+}
