@@ -6,6 +6,8 @@ The Done Manifesto website hopes to present the contents of the manifesto and th
 
 https://done-done.netlify.app/
 
+Quick note about the website: it does not work on phones :(
+
 ## About the manifesto
 
 Done Manifesto was created in 20 minutes by [Bre Pettis](https://www.flickr.com/people/bre/) with [Kio Stark](http://www.kiostark.com/) in 2009. It pushes back against everything that might keep one from getting something done, such as procrastination, concerns, thoughts, situations, and unbridled creativity. This manifesto advocates for getting things done by listing out [13 ground rules](https://www.flickr.com/photos/bre/3326353804/in/photostream/) to get to done.
