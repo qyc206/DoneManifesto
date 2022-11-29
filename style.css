@@ -40,8 +40,6 @@ body {
 #pieces {
   /* grid-area: pieces; */
 
-  /* width: 819px;
-  height: 337.5px; */
   width: 585px;
   height: 112px;
   border: 2px solid black;
