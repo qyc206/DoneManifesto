@@ -6,19 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="puzzle.js"></script>
-    <title>DONE manifesto</title>
+    <title>DONE manifesto: puzzle</title>
   </head>
   <body>
     <div class="container">
-      <br />
-      <div id="puzzle-board"></div>
-      <h2 id="puzzle-status">
-        correctly placed:
-        <span id="correctlyPlaced">0</span>
-      </h2>
-      <br />
-      <div id="pieces"></div>
-      <br />
+      <!-- HAMBURGER MENU -->
+      <nav class="topNav">
+        <button class="ham">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="overlay"></div>
+      <nav class="sideNav">
+        <button class="menuX">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <ul>
+          <li>Joining The Cult of Done??</li>
+          <li>
+            <a class="menuLink" href="pages/welcomeLetter.html">
+              Welcome Letter
+            </a>
+          </li>
+          <li>
+            <a
+              class="menuLink"
+              href="https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13"
+              target="_blank"
+            >
+              A Word From Cult Leader
+            </a>
+          </li>
+          <li>
+            <a class="menuLink" href="pages/cultWorks.html">Cult Works</a>
+          </li>
+          <li><a class="menuLink" href="index.html">Puzzle</a></li>
+        </ul>
+      </nav>
+
+      <!-- PUZZLE -->
+      <div class="puzzle-container">
+        <div id="puzzle-board"></div>
+        <h2 id="puzzle-status">
+          correctly placed:
+          <span id="correctlyPlaced">0</span>
+        </h2>
+        <br />
+        <div id="pieces"></div>
+        <br />
+      </div>
     </div>
   </body>
 </html>
