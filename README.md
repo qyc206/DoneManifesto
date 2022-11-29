@@ -4,7 +4,7 @@ The Done Manifesto website hopes to present the contents of the manifesto and th
 
 ## Link to website
 
-https://done-done.netlify.app/index.html
+https://done-done.netlify.app/
 
 ## About the manifesto
 
