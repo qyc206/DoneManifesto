@@ -70,6 +70,26 @@ window.onload = function(){
         // add piece to pieces holder
         document.getElementById('pieces').append(piece);
     }
+
+    // hamburger menu w/ overlay logic
+    const sideNav = document.querySelector(".sideNav");
+    const overlay = document.querySelector(".overlay");
+    const ham = document.querySelector(".ham");
+    const menuX = document.querySelector(".menuX");
+    const menuItems = document.querySelectorAll(".menuLink");
+
+    menuItems.forEach(menuItem => {
+        menuItem.addEventListener("click", toggleHamburger);
+    });
+
+    ham.addEventListener("click", toggleHamburger);
+    menuX.addEventListener("click", toggleHamburger);
+    overlay.addEventListener("click", toggleHamburger);
+
+    function toggleHamburger() {
+        overlay.classList.toggle("showOverlay");
+        sideNav.classList.toggle("showNav");
+    }
 }
 
 function dragStart() {
@@ -93,25 +113,15 @@ function dragDrop() {
 
 function dragEnd() {
     // ignore any dragged pieces that are empty
-    if (draggedPiece.src.includes("empty")) {
+    if (draggedPiece.src.includes("empty")){
         return;
     }
 
-    // check if the dragged piece is already in the correct spot
-    let alreadyCorrectlyPlaced = 
-        (getPieceValStr(draggedPiece) == piecesLocationTracker[getPieceValStr(draggedPiece)])
-    // check if the piece is dropped in the right spot
-    let correctlyPlaced = isPieceInCorrectPosition(draggedPiece, swapWithPiece);
-
-    // if the piece is correctly placed when it was not already, 
-    // add 1 to count
-    if (correctlyPlaced && !alreadyCorrectlyPlaced){
-        correctlyPlacedCount += 1;
-    } 
-    // if the piece was already correctly placed but is moved to incorrect spot, 
-    // remove 1 from count
-    else if (alreadyCorrectlyPlaced && !correctlyPlaced){
-        correctlyPlacedCount -= 1;
+    // update count based on dragged piece
+    updateCorrectlyPlacedCount(draggedPiece, swapWithPiece);
+    // update count based on dropped on piece
+    if (!swapWithPiece.src.includes("empty")){
+        updateCorrectlyPlacedCount(swapWithPiece, draggedPiece);
     }
 
     // swap dragged piece with dropped on piece
@@ -150,7 +160,26 @@ function dragEnd() {
     }
 }
 
-function updatePiecesLocationTracker(piece, newLocation){
+function updateCorrectlyPlacedCount(piece, otherPiece) {
+    // check if the dragged piece is already in the correct spot
+    let alreadyCorrectlyPlaced = 
+        (getPieceValStr(piece) == piecesLocationTracker[getPieceValStr(piece)])
+    // check if the piece is dropped in the right spot
+    let correctlyPlaced = isPieceInCorrectPosition(piece, otherPiece);
+
+    // if the piece is correctly placed when it was not already, 
+    // add 1 to count
+    if (correctlyPlaced && !alreadyCorrectlyPlaced){
+        correctlyPlacedCount += 1;
+    } 
+    // if the piece was already correctly placed but is moved to incorrect spot, 
+    // remove 1 from count
+    else if (alreadyCorrectlyPlaced && !correctlyPlaced){
+        correctlyPlacedCount -= 1;
+    }
+}
+
+function updatePiecesLocationTracker(piece, newLocation) {
     // no need to update blank pieces
     if (piece.src.includes("empty")){
         return;
@@ -201,5 +230,5 @@ function getPieceValStr(piece) {
 }
 
 function handlePuzzleSolved() {
-
+    document.getElementById("puzzle-status").innerText = "DONE";
 }
